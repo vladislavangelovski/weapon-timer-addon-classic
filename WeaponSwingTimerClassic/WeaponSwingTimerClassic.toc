@@ -1,0 +1,16 @@
+## Interface: 11507
+## Title: Weapon Swing Timer (Classic)
+## Notes: Tracks MH/OH/ranged swings with class-aware reset detection and clipping warning.
+## Author: Vladislav Angelovski
+## Version: 0.1.0
+## SavedVariables: WeaponSwingTimerClassicDB
+## X-Category: Combat
+## X-License: MIT
+
+embeds.xml
+Defaults.lua
+Engine.lua
+ClassResets.lua
+UI.lua
+Config.lua
+Core.lua

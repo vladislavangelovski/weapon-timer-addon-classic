@@ -1,0 +1,17 @@
+# BigWigs Packager pulls libs at build time; don't commit them.
+WeaponSwingTimerClassic/Libs/
+
+# Build output
+*.zip
+.release/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# OS
+Thumbs.db
+.DS_Store
+*.tmp
+*~

@@ -1,0 +1,28 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    name: Build and attach release zip
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Package with BigWigs Packager
+        uses: BigWigsMods/packager@v2
+        with:
+          # -z      produce a zip file
+          # -d      skip uploads to CurseForge / WoWInterface / Wago
+          args: -z -d
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

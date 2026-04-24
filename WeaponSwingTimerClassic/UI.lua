@@ -251,7 +251,7 @@ function UI:OnSwingFired(_, slot)
     end
 end
 
-function UI:OnSwingReset(_, slot, _)
+function UI:OnSwingReset(_, _slot, _)
     self:CheckOnUpdate()
 end
 

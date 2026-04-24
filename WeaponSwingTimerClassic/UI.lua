@@ -217,6 +217,12 @@ function UI:ApplyTheme()
 
         local clipColor = db.colors.clipping
         bar.clip:SetColorTexture(clipColor.r, clipColor.g, clipColor.b, 0.35)
+        -- If the user just disabled clipWarning, any currently-showing overlay
+        -- would stay visible until the next ClipCleared event fires. Clear it
+        -- eagerly here so the toggle takes effect immediately.
+        if not db.clipWarning then
+            bar.clip:Hide()
+        end
     end
 
     self:UpdateIcons()
@@ -263,7 +269,7 @@ end
 
 function UI:OnClipPredicted(_, slot, _)
     local bar = self.bars[slot]
-    if bar then
+    if bar and self.db.clipWarning then
         bar.clip:Show()
     end
     if self.db.soundOnClip then
